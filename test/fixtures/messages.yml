@@ -2,8 +2,8 @@
 
 one:
   body: MyText
-  boolean: 
+  timer: false
 
 two:
   body: MyText
-  boolean: 
+  timer: false
