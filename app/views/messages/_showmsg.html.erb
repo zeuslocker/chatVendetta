@@ -1,0 +1,11 @@
+<%= @decrMsgBody %>
+<p>Before split: </p>
+<%= @message.body %>
+<p>After split: </p>
+<%= @message.body.split('/^[a-z0-9]/') %>
+
+<p>
+<%if @message.timer == true %>
+
+<%= @message.expires_at  %>
+<%end%>
