@@ -18,6 +18,7 @@ gem 'aescrypt'
 gem 'aes', '~> 0.5.0'
 gem 'sinatra', '~> 1.4', '>= 1.4.7'
 # Use jquery as the JavaScript library
+gem 'guid', '~> 0.1.1'
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'

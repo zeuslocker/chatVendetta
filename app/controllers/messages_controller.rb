@@ -1,6 +1,7 @@
 class MessagesController < ApplicationController
     before_action :set_message, only: [:destroy, :show]
     KEY = 'dfgert45fg4thvb6gh88989u64ggh'
+   
      def index
          @message = Message.new
      end
@@ -22,10 +23,11 @@ class MessagesController < ApplicationController
        # @message = Message.new
     end
     def create
-        
+        g = Guid.new
         @message = Message.new(message_params)
         encrMsg = AES.encrypt(@message.body, KEY)
         @message.body = encrMsg 
+        @message.link = g.hexdigest
         if @message.timer == true 
            @message.expires_at = Time.now + 1.hour
         end
@@ -40,9 +42,10 @@ class MessagesController < ApplicationController
     protected
     
     def set_message
-        @message = Message.find(params[:id])
+        @message = Message.where(link: params[:id]).take
     end
     def message_params
         params.require(:message).permit(:body, :timer)
     end
+   
 end

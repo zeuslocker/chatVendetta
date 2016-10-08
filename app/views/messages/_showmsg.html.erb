@@ -2,8 +2,8 @@
 <p>Before split: </p>
 <%= @message.body %>
 <p>After split: </p>
-<%= @message.body.split('/^[a-z0-9]/') %>
-
+<%= @message.body.tr('^A-Za-z0-9', '')[0..12].insert(3, @message.id.to_s.chars.each_slice(2).map(&:join).first).insert(9, @message.id.to_s.chars.each_slice(2).map(&:join).last) %>
+<p>Message id: <%= @message.id %></p>
 <p>
 <%if @message.timer == true %>
 
