@@ -1,11 +1,10 @@
-<%= @decrMsgBody %>
-<p>Before split: </p>
-<%= @message.body %>
-<p>After split: </p>
-<%= @message.body.tr('^A-Za-z0-9', '')[0..12].insert(3, @message.id.to_s.chars.each_slice(2).map(&:join).first).insert(9, @message.id.to_s.chars.each_slice(2).map(&:join).last) %>
-<p>Message id: <%= @message.id %></p>
+<div class="container">
+<h1>Your message</h1><br>
+<h3><%= @decrMsgBody %></h3>
 <p>
 <%if @message.timer == true %>
-
-<%= @message.expires_at  %>
+Message will be deleted afther <%= Time.at((@message.expires_at - Time.now).to_i).strftime("%M minutes and %S seconds")%>
+<%else%>
+This message will be deleted after you refresh the page or try open it again!
 <%end%>
+</div>

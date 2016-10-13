@@ -1,5 +1,11 @@
-<p>Body: </p><%= @message.body %>
-<p>Timer: </p><%= @message.timer %>
-<p>Id: </p><%= @message.id %>
-<p>Link: </p><%= @message.link %>
-<p>This is the link on your message: </p><%= message_url(@message) %>
+<div class="container">
+<div class="col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10 col-xs-offset-1 col-xs-10">
+    <p class="text-success" style="text-align: center">You create a message!</p><br>
+<h2 style="text-align: center">This is the link on your message: </h2><br>
+<!--<h4 style="text-align: center" id="link"> # message_url(@message) </h4> -->
+
+<button class="clipboard-btn col-md-offset-4 col-md-4 col-sm-offset-4 col-sm-4 col-xs-offset-3 col-xs-6 btn btn-default" style="text-align: center" data-clipboard-text="<%= message_url(@message) %>">
+   <%= image_tag "copy-icon.png" %><br>  Copy to clipboard
+</button>
+</div>
+</div>

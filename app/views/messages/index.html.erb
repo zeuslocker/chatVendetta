@@ -1,7 +1,15 @@
+<div class="container">
+    <div class="col-md-offset-3 col-md-6">
+<div class="form-group">
 <%= form_for(@message) do |f| %>
-<%= f.label :body %>
-<%= f.text_area :body %>
-<%= f.label :timer %>
-<%= f.check_box :timer  %>
-<%= f.submit %>
+<%= f.label :body, 'Message text', :for => 'bodyTextarea' %>
+<%= f.text_area :body, :class => 'form-control',  :id => 'bodyTextarea', :rows => '10' %>
+</div>
+<div class="form-group">
+<%= f.check_box :timer, :class => 'form-check-input', :id => 'timerCheckBox'  %>
+<%= f.label :timer, 'Delete after 1 hour', :for => 'timerCheckBox' %><br>
+<%= f.submit 'Submit', :class => 'col-md-2 btn btn-default' %>
+</div>
 <%end%>
+</div>
+</div>
